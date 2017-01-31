@@ -1,0 +1,33 @@
+<script>
+
+var printChar = function(len, char){
+	//Returns a string of length len, containing `char`.
+	var subStr = "";
+	for(var i=0; i<len; i++)
+		subStr += char;
+	return subStr;
+};
+
+var height = 19, //Only odd numbers. height of diamond
+	mid = (height + 1) / 2, //mid point
+	i=1, j=1, //Iter var 
+	endStr = " ",
+	midStr = "*";
+
+for (i = 1; i <= height; i++) {
+	var localI = 0;
+	if(i <= mid){//Top of the diamond
+
+		localI = i;
+		midStrCount = (localI * 2) - 1;
+
+	}else{//Bottom of the diamond
+
+		localI = (height - i); 
+		midStrCount = (localI * 2) + 1;
+
+	}
+	endStrCountPerSide = Math.abs((height - midStrCount)/2);
+	console.log(printChar(endStrCountPerSide, endStr) + printChar(midStrCount, midStr) + printChar(endStrCountPerSide, endStr));
+}
+</script>
